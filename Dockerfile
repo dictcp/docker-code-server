@@ -4,17 +4,19 @@ FROM codercom/code-server:latest
 
 USER root
 
-# setup docker
+# install docker
 RUN curl https://get.docker.com | bash -
-RUN sudo usermod -aG docker 'coder'
+RUN usermod -aG docker 'coder'
 
+# start dockerd
 RUN mkdir /entrypoint.d
-
 COPY <<EOF /entrypoint.d/dockerd.sh
 #!/bin/sh
 sudo dockerd &
 EOF
-
 RUN chmod +x /entrypoint.d/*
 
+# restore users
 USER 1000
+
+RUN mkdir /home/coder/workspaces
