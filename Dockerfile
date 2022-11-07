@@ -1,4 +1,5 @@
-#syntax=docker/dockerfile:1.4-labs
+# syntax=docker/dockerfile:1.4-labs
+# ref: https://github.com/moby/buildkit/blob/master/frontend/dockerfile/docs/reference.md
 
 ## ref: https://github.com/coder/code-server/blob/main/ci/release-image/Dockerfile
 FROM codercom/code-server:latest
