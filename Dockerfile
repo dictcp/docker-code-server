@@ -1,5 +1,6 @@
 #syntax=docker/dockerfile:1.4-labs
 
+## ref: https://github.com/coder/code-server/blob/main/ci/release-image/Dockerfile
 FROM codercom/code-server:latest
 
 USER root
@@ -20,3 +21,6 @@ RUN chmod +x /entrypoint.d/*
 USER 1000
 
 RUN mkdir /home/coder/workspaces
+
+# default ENTRYPOINT ["/usr/bin/entrypoint.sh", "--bind-addr", "0.0.0.0:8080", "."]
+# ref: https://github.com/coder/code-server/blob/main/ci/release-image/entrypoint.sh
